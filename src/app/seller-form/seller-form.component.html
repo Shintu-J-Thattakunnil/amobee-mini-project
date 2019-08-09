@@ -1,0 +1,66 @@
+<div class="seller-form-wrapper">
+  <div class="seller-form-info">
+      <h2 class="mat-title">Seller Form</h2>
+      <label>* Required field</label>
+  </div>
+  <form class="seller-form" [formGroup]="sellerService.sellerForm">
+    <mat-form-field class="full-width">
+      <input matInput [errorStateMatcher]="matcher" placeholder="Seller Name*" formControlName="sellerName">
+      <mat-error *ngIf="sellerService.sellerForm.get('sellerName').invalid && sellerService.sellerForm.get('sellerName').touched">
+          Please enter a seller name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Currencies*</mat-label>
+      <mat-select formControlName="currencies" multiple>
+        <mat-option *ngFor="let currency of currencyList" [value]="currency">{{currency}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="sellerService.sellerForm.get('currencies').invalid && sellerService.sellerForm.get('currencies').touched">
+          Please select a currency
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Offices*</mat-label>
+      <mat-select formControlName="offices" multiple>
+        <mat-option *ngFor="let office of officeList" [value]="office">{{office}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="sellerService.sellerForm.get('offices').invalid && sellerService.sellerForm.get('offices').touched">
+          Please select an office
+      </mat-error>
+    </mat-form-field>
+    <div class="seller-form-field-wrapper" formGroupName="dealType">
+      <div class="clearfix">      
+        <div class="float">
+          <label class="seller-form-label">Deal Type*:</label>
+        </div>
+        <div class="float">
+          <div>
+            <mat-checkbox formControlName="isBidded" >Bidded</mat-checkbox>
+          </div>
+          <div>
+            <mat-checkbox formControlName="isGuaranteed" >Guaranteed</mat-checkbox>
+          </div>
+        </div>
+        
+      </div>
+      <mat-error class="lbl-error" *ngIf="sellerService.sellerForm.get('dealType').invalid && sellerService.sellerForm.get('dealType').touched">
+          Please select a deal type
+      </mat-error>
+    </div>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Contact Name" formControlName="contactName">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Email" formControlName="contactEmail"
+              [errorStateMatcher]="matcher">
+      <mat-error *ngIf="sellerService.sellerForm.get('contactEmail').hasError('email') && !sellerService.sellerForm.get('contactEmail').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <div class="clearfix">
+      <button class="seller-form-button seller-form-btn-submit" type="button" (click)="onSubmit()" mat-flat-button [disabled]="!sellerService.sellerForm.valid">Save</button>
+      <button class="seller-form-button" type="button" mat-button (click) ="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+@import '../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../../node_modules/ngx-toastr/toastr.css';
+
+// Mixin itself
+@mixin clearfix() {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+  
+  // Usage as a mixin
+  .clearfix {
+    @include clearfix;
+  }
+
+  .float{
+      float: left;
+  }
+
+  @mixin fonts {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  body{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
