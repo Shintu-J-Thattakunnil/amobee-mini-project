@@ -1,7 +1,11 @@
 .seller-list{
     &-wrapper{
+        max-width: 900px;
         table{
             width: 100%;
+        }
+        td{
+            padding: 0 10px;
         }
     }
 }
