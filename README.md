@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/Shintu-Joseph/amobee-mini-project/tree/master.svg?style=svg)](https://circleci.com/gh/Shintu-Joseph/amobee-mini-project/tree/master)
 # amobee-mini-project
 Mini project - Seller Management
 
