@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/amobee-mini-project
+    docker:
+      - image: circleci/node:8-browsers
+    steps:
+      - checkout
